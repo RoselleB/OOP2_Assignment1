@@ -1,0 +1,37 @@
+package sait.mss.application;
+
+import sait.mms.manager.MovieManager;
+
+public class AppDriver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MovieManager manager = new MovieManager();
+		
+		manager.loadMovieList();
+			
+		boolean running = true;
+			
+		while (running) {
+			int option = manager.displayMenu();
+			
+			switch (option) {
+				case 1:
+					manager.addMovie();
+					break;
+				case 2:
+					manager.generateMovieListInYear();
+					break;
+				case 3:
+					manager.generateRandomMovieList();
+					break;
+				case 4: manager.saveMovieListToFile();
+					running = false;
+					break;
+				default:
+					System.out.println("Invalid option!");
+				}
+			}
+	}
+
+}
